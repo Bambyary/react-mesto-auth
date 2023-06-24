@@ -71,7 +71,6 @@ function EditProfilePopup (props) {
             about: description
         })
 
-        props.onClose();
     }
 
     function handleFocus () {

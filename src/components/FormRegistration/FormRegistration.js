@@ -11,7 +11,7 @@ function FormRegistration (props) {
                     onSubmit={props.handleSubmit} noValidate>
                     <fieldset className="registration__fieldset">
                         {props.children}
-                        <button className={`registration__button-save ${!props.isFormValid && 'registration__button-save_inactive'}`} type="submit" id="registration__button-save">{props.textButton}</button>
+                        <button className={`registration__button-save ${!props.isFormValid && 'registration__button-save_inactive'}`} disabled={!props.isFormValid} type="submit" id="registration__button-save">{props.textButton}</button>
                     </fieldset>
                 </form>
                 <Link to='/sign-in' className="registration__link-login">{props.textLink}</Link>

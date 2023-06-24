@@ -1,7 +1,7 @@
 import React from "react";
 import FormRegistration from "../FormRegistration/FormRegistration";
 import Header from "../Header/Header";
-import * as auth from '../../auth.js';
+import * as auth from '../../utils/auth';
 import {useNavigate} from 'react-router-dom';
 
 function Login (props) {

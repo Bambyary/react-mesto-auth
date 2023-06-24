@@ -14,7 +14,7 @@ import { Route, Routes, useNavigate } from 'react-router-dom';
 import Login from './Login/Login';
 import Register from './Register/Register.js';
 import ProtectedRoute from './ProtectedRoute/ProtectedRoute.js';
-import * as auth from '../auth.js';
+import * as auth from '../utils/auth';
 import InfoTooltip from './InfoTooltip/InfoTooltip.js';
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
     const [currentUser, setCurrentUser] = React.useState({});
     const [cards, setCards] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
-    const [cardData, setCardData] = React.useState([]);
+    const [cardData, setCardData] = React.useState({});
     const [loggedIn, setLoggedIn] = React.useState(false);
     const [userEmail, setUserEmail] = React.useState({});
     const [isPopupSuccessOpen, setIsPopupSuccessOpen] = React.useState(false);
@@ -101,6 +101,7 @@ function App() {
     function handleCardDelete (card) {
         api.deleteCard(card._id).then(() => {
             setCards((state) => state.filter((c) => c._id !== card._id))
+            closeAllPopups();
         }).catch(err => console.log(err));
     }
 
@@ -108,6 +109,7 @@ function App() {
         setIsLoading(true);
         api.editUserInfo(userData).then(data => {
             setCurrentUser(data);
+            closeAllPopups();
         }).catch(err => console.log(err))
         .finally(() => {
             setIsLoading(false);
@@ -118,6 +120,7 @@ function App() {
         setIsLoading(true);
         api.editAvatar(userAvatar).then(data => {
             setCurrentUser(data);
+            closeAllPopups();
         }).catch(err => console.log(err))
         .finally(() => {
             setIsLoading(false);
@@ -128,6 +131,7 @@ function App() {
         setIsLoading(true); 
         api.addCard(card).then((newCard) => {
             setCards([newCard, ...cards]);
+            closeAllPopups();
         }).catch(err => console.log(err))
         .finally(() => {
             setIsLoading(false);

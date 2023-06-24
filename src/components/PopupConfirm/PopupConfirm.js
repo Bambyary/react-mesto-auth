@@ -2,10 +2,9 @@ import React from "react";
 
 function PopupWithConfirm (props) {
     
-    const handleCardDelete = () => {
+    const handleCardDelete = (e) => {
+        e.preventDefault();
         props.onCardDelete(props.card);
-
-        props.onClose();
     }
 
     return (

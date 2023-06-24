@@ -2,7 +2,7 @@ import React from "react";
 import FormRegistration from "../FormRegistration/FormRegistration";
 import Header from "../Header/Header";
 import {useNavigate} from 'react-router-dom';
-import * as auth from '../../auth.js';
+import * as auth from '../../utils/auth';
 
 function Register (props) {
     const [email, setEmail] = React.useState('');

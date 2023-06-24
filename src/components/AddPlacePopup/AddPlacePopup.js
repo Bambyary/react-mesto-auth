@@ -71,7 +71,6 @@ function AddPlacePopup (props) {
             link
         })
         
-        props.onClose();
     }
 
     function handleFocus () {
