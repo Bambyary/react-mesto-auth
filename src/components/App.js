@@ -40,6 +40,7 @@ function App() {
         }).catch(err => console.log(err));
 
         api.getCards().then(data => {
+            console.log(data)
             setCards(data.map(card => {
                 return card;
             }));

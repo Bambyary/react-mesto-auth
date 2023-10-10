@@ -56,7 +56,7 @@ export const getToken = (token) => {
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
-            authorization: `Bearer ${token}`
+            'authorization': `Bearer ${token}`
         }
     }).then(res => {
         if(res.status === 200) {
